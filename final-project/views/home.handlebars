@@ -1,0 +1,115 @@
+
+
+<center>
+<div>
+    <input type="text" id="fname" class="search-container" placeholder="Search.." onkeyup="myFunction()">
+</div>
+
+<div>
+	<p id="results"></p>
+</div>
+
+<br>
+
+<div>
+	<a href = "/create" class="new_post">New Post!</a>
+</div>
+<br>
+</center>
+
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
+<script>
+	var result
+	var recipe
+	var titles = []
+$( document ).ready(function() {
+	
+	// GET REQUEST
+	$("#fname").keyup(function(event){
+		var x = document.getElementById("fname")
+		event.preventDefault();
+		ajaxGet(x);
+	});
+	
+	// DO GET
+	function ajaxGet(x){
+		$.ajax({
+			type : "GET",
+			url : "http://localhost:4000/api/view",
+	 		crossDomain: true,
+
+			success: function(result){
+				$.each(result, function(val){
+					$.each(result[val], function(i, recipe){
+						if(i == "title"){
+							titles.push(recipe);
+
+						}
+					});
+				});
+					
+				$('#results').append(titles);
+				titles = []
+
+				console.log("Success: ", result);
+			},
+			error: function(e) {
+				$('#title_recipe').html("<strong>Error</strong>");
+				console.log("ERROR: ", e);
+			}
+		});	
+	}
+})
+
+	
+/*
+	function myFunction() {
+		var x = document.getElementById("fname")
+		x.value = x.value.toUpperCase();
+		alert(x.value)
+	}
+*/
+/*
+$( document ).ready(function() {
+	
+	// GET REQUEST
+	$("#fname").keyup(function(event){
+		event.preventDefault();
+		ajaxGet();
+	});
+	
+	// DO GET
+	function ajaxGet(){
+		$.ajax({
+			type : "GET",
+			url : "http://localhost:4000/api/view",
+			success: function(result){
+				$.each(result, function(i, recipe){
+				});
+				console.log("Success: ", result);
+			},
+			error : function(e) {
+				$('#title_recipe').html("<strong>Error</strong>");
+				console.log("ERROR: ", e);
+			}
+		});	
+	}
+})
+*/
+
+</script>
+
+{{#each data}}
+
+<article>
+	<h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+	<br>
+	<br>
+	<div class="content">
+		{{{this.preview}}}...
+	</div>
+</article>
+
+{{/each}}
+
+

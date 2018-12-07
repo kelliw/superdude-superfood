@@ -1,0 +1,81 @@
+
+<body>
+    <h1>Meal Type</h1>
+  
+        <h2>Breakfast</h2>
+        <ul>
+            {{#each breakfast}}
+                <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+ 
+        <h2>Lunch</h2>
+        <ul>
+            {{#each lunch}}
+                <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+
+        <h2>Appetizer</h2>
+        <ul>
+            {{#each appetizer}}
+                <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+
+        <h2>Dinner</h2>
+        <ul>
+            {{#each dinner}}
+                 <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+         
+        <h2>Dessert</h2>
+        <ul>
+            {{#each dessert}}
+                <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+    
+</body>
+</html>

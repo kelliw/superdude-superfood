@@ -1,0 +1,32 @@
+<h1>Create a Recipe Review</h1>
+<article>
+    <form method="POST" action="/create">
+        <div class="input-field">
+            <label>Recipe Title:</label>
+            <input type="text" id="title_recipe" name="title" size="50" placeholder="Green and Berry Salad">
+        </div>
+        <div class="input-field">
+            <label>Meal Type:</label>
+            <input type="text" name="meal_type" size="50" placeholder="Breakfast">
+        </div>
+         <div class="input-field">
+            <label>Superfoods:</label>
+            <input type="text" name="super_foods" size="50" placeholder="Spinach, Blueberries...">
+            {{!-- array type --}}
+        </div>
+        <div class="input-field">
+            <label>Link:</label>
+            <input type="url" name="link" size="50" placeholder="http://www...">
+        </div>
+        <div class="input-field">
+            <label>Skill Level:</label>
+            <input type="number" name="skill_level" size="50" placeholder="1, 2, 3 ... 5">
+        </div>
+        <div class="input-field">
+            <label>Review:</label>
+            <textarea type="text" name="review" rows="6" placeholder="This recipie was berry delicious because..."></textarea>
+        </div>
+
+        <button type="submit">Post </button>
+    </form>
+</article>

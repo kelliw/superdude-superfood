@@ -1,0 +1,80 @@
+
+<body>
+    <h1>Meal Type</h1>
+  
+        <h2>Easy: Level 1</h2>
+        <ul>
+            {{#each one}}
+                 <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+ 
+        <h2>Level 2</h2>
+        <ul>
+            {{#each two}}
+                <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+            {{/each}}
+        </ul>
+
+        <h2>Medium: Level 3</h2>
+        <ul>
+            {{#each three}}
+                <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+
+        <h2>Level 4</h2>
+        <ul>
+            {{#each four}}
+                 <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+         
+        <h2>Master Chef: Level 5</h2>
+        <ul>
+            {{#each five}}
+                <article>
+                    <h2 class="title" ><a href="/post/{{this.title}}">{{this.title}}</a></h2> <i>{{this.time}}</i>
+                    <br>
+                    <br>
+                    <div class="content">
+                        {{{this.preview}}}...
+                    </div>
+                 </article>
+
+            {{/each}}
+        </ul>
+    
+</body>
+</html>
