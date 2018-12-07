@@ -22,11 +22,13 @@
 	var result
 	var recipe
 	var titles = []
+	var str
 $( document ).ready(function() {
 	
 	// GET REQUEST
 	$("#fname").keyup(function(event){
 		var x = document.getElementById("fname")
+		x.value = x.value.toLowerCase();
 		event.preventDefault();
 		ajaxGet(x);
 	});
@@ -38,18 +40,25 @@ $( document ).ready(function() {
 			url : "http://localhost:4000/api/view",
 	 		crossDomain: true,
 
-			success: function(result){
-				$.each(result, function(val){
-					$.each(result[val], function(i, recipe){
-						if(i == "title"){
-							titles.push(recipe);
+			success: function(result) {
+				$.each(result, function(val) {
+					$.each(result[val], function(i, recipe) {
+						if(i == "title") {
+							str = recipe.toLowerCase();
+							titles.push(str);
 
 						}
 					});
 				});
-					
-				$('#results').append(titles);
-				titles = []
+
+				if (x.value !== "") {
+					for (var i = 0; i < titles.length; i++) {
+						if (titles[i].indexOf(x.value) > -1) {
+							$('#results').empty();
+							$('#results').append(titles[i]);
+						}
+					}
+				}
 
 				console.log("Success: ", result);
 			},
@@ -57,45 +66,11 @@ $( document ).ready(function() {
 				$('#title_recipe').html("<strong>Error</strong>");
 				console.log("ERROR: ", e);
 			}
+			
 		});	
 	}
 })
 
-	
-/*
-	function myFunction() {
-		var x = document.getElementById("fname")
-		x.value = x.value.toUpperCase();
-		alert(x.value)
-	}
-*/
-/*
-$( document ).ready(function() {
-	
-	// GET REQUEST
-	$("#fname").keyup(function(event){
-		event.preventDefault();
-		ajaxGet();
-	});
-	
-	// DO GET
-	function ajaxGet(){
-		$.ajax({
-			type : "GET",
-			url : "http://localhost:4000/api/view",
-			success: function(result){
-				$.each(result, function(i, recipe){
-				});
-				console.log("Success: ", result);
-			},
-			error : function(e) {
-				$('#title_recipe').html("<strong>Error</strong>");
-				console.log("ERROR: ", e);
-			}
-		});	
-	}
-})
-*/
 
 </script>
 
