@@ -287,6 +287,6 @@ app.delete('/post/:title', function(req, res) {
 });
 
 
-app.listen(4000, function() {
-    console.log('Super Dude\'s Super Foods listening on port 4000!');
+app.listen(process.env.PORT || 4000, function() {
+    console.log('Listening!');
 });
